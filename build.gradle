@@ -57,8 +57,8 @@ dependencies {
 //        exclude module: 'com.google.guava:guava'
 //    }
 //    compile "org.springframework.boot:spring-boot-devtools"
-
-    testCompile('com.athaydes:spock-reports:1.2.12') {
-        transitive = false
-    }
+//
+//    testCompile('com.athaydes:spock-reports:1.2.12') {
+//        transitive = false
+//    }
 }
