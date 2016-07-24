@@ -8,6 +8,7 @@ import com.rdas.spring.validator.UserCreateFormPasswordValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -44,9 +45,12 @@ public class UserCreateController {
 
     ///user_create.html
     @RequestMapping(value = "/createuser", method = RequestMethod.GET)
-    public ModelAndView getCreateUserView() {
+    public String getCreateUserView(Model model) {
+//    public ModelAndView getCreateUserView() {
         log.debug("Received request for user create view");
-        return new ModelAndView("/user_create", "form", new UserCreateForm());
+        model.addAttribute("form", new UserCreateForm());
+        return "createuser";
+//        return new ModelAndView("jsp/user_create", "form", new UserCreateForm());
     }
 
     @RequestMapping(value = "/createuser", method = RequestMethod.POST)
@@ -60,8 +64,8 @@ public class UserCreateController {
         } catch (UserAlreadyExistsException e) {
             log.debug("Tried to create user with existing id", e);
             result.reject("user.error.exists");
-            return "user_create";
+            return "createuser";
         }
-        return "redirect:/user_list.html";
+        return "redirect:/listuser";
     }
 }

@@ -2,10 +2,14 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
+<head>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+</head>
 <body>
 <h1><spring:message code="user.create"/></h1>
-<a href="<spring:url value="/user_list.html" />"><spring:message code="user.list"/></a>
-<form:form method="POST" action="/user_create.html" modelAttribute="form">
+<a href="<spring:url value="/listuser" />"><spring:message code="user.list"/></a>
+<form:form method="POST" action="/createuser" modelAttribute="form">
     <form:errors path="" element="div"/>
     <div>
         <form:label path="id"><spring:message code="user.id"/></form:label>

@@ -40,14 +40,17 @@ dependencies {
     compile "org.projectlombok:lombok:1.16.10"
     compile "org.hibernate:hibernate-validator"
 //    compile "com.google.guava:guava:19.0"
-    compile "org.apache.tomcat.embed:tomcat-embed-jasper"
-    compile "javax.servlet:jstl:1.2"
+    compile "org.apache.tomcat.embed:tomcat-embed-jasper:9.0.0.M8"
+//    compile "javax.servlet:jstl:1.2"
     compile "org.hsqldb:hsqldb"
     compile "org.codehaus.groovy:groovy-all:$groovy_ver"
 
     testCompile "org.spockframework:spock-core:$spock_ver"
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "org.easytesting:fest-assert-core:2.0M10"
+
+//    compile "jstl:jstl:1.2"
+    compile "org.eclipse.jetty:apache-jstl:9.4.0.M0"
 
 //    compile ("io.springfox:springfox-swagger-ui:2.2.2") {
 //        exclude module: 'org.slf4j:slf4j-api'

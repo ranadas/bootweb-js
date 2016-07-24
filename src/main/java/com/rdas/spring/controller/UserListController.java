@@ -4,6 +4,7 @@ import com.rdas.spring.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,11 +19,14 @@ public class UserListController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/user_list.html")
-    public ModelAndView getListUsersView() {
+    @RequestMapping("/listuser")
+    public String getListUsersView(Model model) {
+//    public ModelAndView getListUsersView() {
         log.debug("Received request to get user list view");
-        ModelMap model = new ModelMap();
+//        ModelMap model = new ModelMap();
+//        model.addAttribute("users", userService.getList());
+//        return new ModelAndView("user_list", model);
         model.addAttribute("users", userService.getList());
-        return new ModelAndView("user_list", model);
+        return "listuser";
     }
 }

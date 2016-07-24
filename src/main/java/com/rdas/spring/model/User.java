@@ -1,9 +1,6 @@
 package com.rdas.spring.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +13,7 @@ import javax.validation.constraints.Size;
  */
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 @Entity
