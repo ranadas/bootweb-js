@@ -43,14 +43,19 @@ public class UserCreateController {
         return "index";
     }
 
-    ///user_create.html
+    // Both get methods are same. ModelAndView  wasn't working, investigate why?
+    @RequestMapping(value = "/createuserm", method = RequestMethod.GET)
+    public ModelAndView createUserModelDisplay() {
+        log.info("Request for user create view screen");
+        return new ModelAndView("createuser", "form", new UserCreateForm());
+    }
+
+
     @RequestMapping(value = "/createuser", method = RequestMethod.GET)
-    public String getCreateUserView(Model model) {
-//    public ModelAndView getCreateUserView() {
+    public String getCreateUserModel(Model model) {
         log.debug("Received request for user create view");
         model.addAttribute("form", new UserCreateForm());
         return "createuser";
-//        return new ModelAndView("jsp/user_create", "form", new UserCreateForm());
     }
 
     @RequestMapping(value = "/createuser", method = RequestMethod.POST)
@@ -66,6 +71,6 @@ public class UserCreateController {
             result.reject("user.error.exists");
             return "createuser";
         }
-        return "redirect:/listuser";
+        return "redirect:/user/list";
     }
 }

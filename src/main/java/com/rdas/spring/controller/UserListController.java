@@ -14,19 +14,22 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Slf4j
 @Controller
+@RequestMapping("/user")
 public class UserListController {
-
     @Autowired
     private UserService userService;
 
     @RequestMapping("/listuser")
-    public String getListUsersView(Model model) {
-//    public ModelAndView getListUsersView() {
+    public ModelAndView getListUsersView() {
         log.debug("Received request to get user list view");
-//        ModelMap model = new ModelMap();
-//        model.addAttribute("users", userService.getList());
-//        return new ModelAndView("user_list", model);
-//        model.addAttribute("users", userService.getList());
+        ModelMap model = new ModelMap();
+        model.addAttribute("users", userService.getList());
+        return new ModelAndView("listuser", model);
+    }
+
+    @RequestMapping("/list")
+    public String listUsersView() {
+        log.debug("Received request to get user list view");
         return "listuser";
     }
 }

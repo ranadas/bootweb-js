@@ -10,14 +10,8 @@
         $(document).ready(function() {
             console.log("in doc ready");
 
-//            $.get('user', {
-//            }, function(responseText) {
-//                console.log(responseText);
-//            });
-
-
             $.ajax({
-                url: "user",
+                url: "/users",
                 dataType: "json",
                 //data: request,
                 success: function( data) {
@@ -47,15 +41,6 @@
 <body>
 <h1><spring:message code="user.list"/></h1>
 <div id="ajaxGetUser"></div>
-<ul>
-    <%--${users}--%>
-
-    <%--<c:forEach items="${users}" var="user">--%>
-        <%--<li>--%>
-            <%--<c:out value="${user.getId()}"/>--%>
-        <%--</li>--%>
-    <%--</c:forEach>--%>
-</ul>
 
 <a href="<spring:url value="/createuser" />"><spring:message code="user.create"/></a>
 </body>

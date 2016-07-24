@@ -21,13 +21,13 @@ public class UserRestController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    @RequestMapping(value = "/users", method = RequestMethod.POST)
     public User createUser(@RequestBody @Valid final User user) {
         log.debug("Received request to create the {}", user);
         return userService.save(user);
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
     public List<User> listUsers() {
         log.debug("Received request to list all users");
         return userService.getList();

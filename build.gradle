@@ -16,7 +16,7 @@ apply plugin: 'spring-boot'
 apply plugin: 'groovy'
 
 group = 'com.rdas'
- 
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -25,23 +25,19 @@ war {
     version = '1-SNAPSHOT'
 }
 dependencies {
-//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-parent', version: "$boot_version", ext: 'pom'
-//    compile 'org.springframework.boot:spring-boot-starter'
-    compile ("org.springframework.boot:spring-boot-starter-web") {
+    compile("org.springframework.boot:spring-boot-starter-web") {
         exclude module: "spring-boot-starter-tomcat"
-//        compile("org.springframework.boot:spring-boot-starter-jetty")
         compile "org.eclipse.jetty:jetty-webapp:9.+"
         compile "org.eclipse.jetty:jetty-jsp:9.+"
     }
 
-
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
-//    compile 'org.springframework.boot:spring-boot-starter-tomcat'
     compile "org.projectlombok:lombok:1.16.10"
     compile "org.hibernate:hibernate-validator"
-//    compile "com.google.guava:guava:19.0"
+    compile "com.google.guava:guava:19.0"
     compile "org.apache.tomcat.embed:tomcat-embed-jasper:9.0.0.M8"
 //    compile "javax.servlet:jstl:1.2"
+    //    compile "jstl:jstl:1.2"
     compile "org.hsqldb:hsqldb"
     compile "org.codehaus.groovy:groovy-all:$groovy_ver"
 
@@ -49,7 +45,7 @@ dependencies {
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "org.easytesting:fest-assert-core:2.0M10"
 
-//    compile "jstl:jstl:1.2"
+
     compile "org.eclipse.jetty:apache-jstl:9.4.0.M0"
 
 //    compile ("io.springfox:springfox-swagger-ui:2.2.2") {
@@ -62,11 +58,7 @@ dependencies {
 //    }
 //    compile "org.springframework.boot:spring-boot-devtools"
 
-    testCompile( 'com.athaydes:spock-reports:1.2.12' ) {
+    testCompile('com.athaydes:spock-reports:1.2.12') {
         transitive = false
     }
-//
-//    testCompile 'org.slf4j:slf4j-api:1.7.13'
-//    testCompile 'org.slf4j:slf4j-simple:1.7.13'
-
 }
